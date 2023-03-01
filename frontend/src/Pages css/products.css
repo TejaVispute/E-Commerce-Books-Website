@@ -1,0 +1,37 @@
+.books-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.heading>h1 {
+    background-color: tomato;
+    font-weight: 700;
+    color: white;
+    font-size: 2rem;
+}
+
+.categories-wrapper{
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+
+@media screen and (max-width: 992px) {
+    .books-collection {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 757px) {
+    .books-collection {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .books-collection {
+        grid-template-columns: 1fr;
+    }
+}
