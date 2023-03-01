@@ -1,31 +1,11 @@
 import React from 'react'
 import BooksCard from '../Components/BooksCard'
-import { useState, useEffect } from 'react';
-import "../Pages css/products.css"
+import "../Components css/products.css"
 import SkletonLoad from '../Components/SkletonLoad';
+import { useBook } from '../Context/BookContext';
 export default function Products() {
-
-    const [data, setData] = useState([]);
-    const [filter, setFilter] = useState(data);
-    const [isLoading, setIsLoading] = useState(false);
-    let componentMuted = true;
-    useEffect(() => {
-        async function fetchData() {
-            setIsLoading(true);
-            await fetch("http://localhost:4000/books/")
-                .then((response) => response.json())
-                .then((data) => {
-                    if (componentMuted) {
-                        setIsLoading(false);
-                        setFilter(data);
-                        setData(data)
-                    }
-                });
-        }
-        fetchData();
-    }, [])
-
-
+    let { data, setData, filter, setFilter, isLoading, setIsLoading } = useBook();
+    // console.log(value)
 
     const filterBooks = (value) => {
         let filtered = data.filter((e) => e.categories === value)
@@ -34,9 +14,9 @@ export default function Products() {
 
     return (
         <>
-            <div id='books wrapper'>
+            <div id='bookswrapper'>
 
-                <div className="heading py-4 my-4  text-center">
+                <div className="heading my-4  text-center" >
                     <h1>On Sale</h1>
 
                     <div className="categories-wrapper flex">

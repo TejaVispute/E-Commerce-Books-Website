@@ -5,6 +5,9 @@ import About from './Pages/About';
 
 import Contact from './Pages/Contact';
 import Nav from './Components/Nav';
+import Error from './Pages/Error';
+import BookDetails from './Pages/BookDetails';
+import AllBooks from './Pages/AllBooks';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/bookdetail/:id' element={<BookDetails />}></Route>
+        <Route path='/allbooks' element={<AllBooks />}></Route>
+        <Route path='*' element={<Error />} />
       </Routes>
     </div>
   )

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Components css/Nav.css";
+import { useBook } from "../Context/BookContext";
 // This is navbar component
 
 function Nav() {
+  let { searchBook, setSearchBook } = useBook();
+  console.log(searchBook)
   return (
     <div className="nav-wrapper">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,7 +21,7 @@ function Nav() {
                 <NavLink style={{ textDecoration: "none", fontWeight: 500 }} className={({ isActive, isPending }) => isActive ? "act" : "blue"} aria-current="page" to="/">Home</NavLink>
               </li>
               <li className="nav-item mx-2">
-                <NavLink style={{ textDecoration: "none", fontWeight: 500 }} className={({ isActive, isPending }) => isActive ? "act" : "blue"} to="/products">Products</NavLink>
+                <NavLink style={{ textDecoration: "none", fontWeight: 500 }} className={({ isActive, isPending }) => isActive ? "act" : "blue"} to="/allbooks">Products</NavLink>
               </li>
               <li className="nav-item mx-2">
                 <NavLink style={{ textDecoration: "none", fontWeight: 500 }} className={({ isActive, isPending }) => isActive ? "act" : "blue"} to="/about">About</NavLink>
@@ -30,7 +33,7 @@ function Nav() {
 
             </ul>
             <div className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <input className="form-control me-2" onChange={(e) => setSearchBook(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
             </div>
           </div>
         </div>

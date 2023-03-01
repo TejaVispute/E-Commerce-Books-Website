@@ -1,0 +1,17 @@
+.detail-wrapper{
+    width: 100%;
+    height: 85vh;
+}
+.image-left-section{
+    width: 40%;
+    padding: 1rem;
+}
+.image-left-section img{
+    width: 100%;
+    height: 100%;
+}
+
+.book-detail-right-section{
+    width: 60%;
+    padding: 1rem;
+}
