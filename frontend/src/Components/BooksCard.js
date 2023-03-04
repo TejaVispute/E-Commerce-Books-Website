@@ -5,10 +5,13 @@ import { useBook } from '../Context/BookContext';
 
 function BooksCard({ filter }) {
   let { searchBook, setSearchBook, } = useBook();
+
   return (
     <>
       {
-        filter.map((e) => {
+        filter.filter((book) => (
+          book.name.toLowerCase().includes(searchBook.toLowerCase())
+        )).map((e) => {
           let url = `/bookdetail/${e._id}`
           return (
             <Link to={url} style={{ textDecoration: "none", color: " black" }}>

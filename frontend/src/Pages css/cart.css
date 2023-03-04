@@ -1,0 +1,89 @@
+.cart-container {
+    height: 100%;
+    width: 100%;
+
+}
+
+.heading-cart {
+    width: 100%;
+
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: rgba(128, 128, 128, 0.104);
+    margin-bottom: 1rem;
+}
+
+.heading-cart>div {
+    font-weight: bold;
+    text-align: center;
+    padding: .6rem;
+    font-size: 20px;
+
+}
+
+.product {
+    width: 60%;
+
+}
+
+.price {
+    width: 13%;
+
+}
+
+.quantity {
+    width: 13%;
+
+}
+
+.subtotal {
+    width: 14%;
+
+}
+
+.cart-book-item {
+    /* background-color: red; */
+    height: 130px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+margin-bottom: 1rem;
+
+}
+
+.image-name-book {
+    width: 60%;
+    /* background-color: royalblue; */
+}
+
+.price-book {
+    width: 13%;
+    color: green;
+    font-weight: bold;
+}
+
+.quantity-book {
+    width: 13%;
+}
+
+.subtotal-book {
+    width: 13%;
+}
+
+.book-image {
+    width: 20%;
+
+}
+.book-image img {
+    width: 45%;
+
+}
+
+.book-name {
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

@@ -8,6 +8,7 @@ function BookContextProvider({ children }) {
     const [filter, setFilter] = useState(data);
     const [isLoading, setIsLoading] = useState(false);
     const [searchBook, setSearchBook] = useState("");
+    const [cart, setCart] = useState([]);
     let componentMuted = true;
     useEffect(() => {
         async function fetchData() {
@@ -24,8 +25,8 @@ function BookContextProvider({ children }) {
         }
         fetchData();
     }, [])
-
-    return <BookContext.Provider value={{ data, setData, filter, setFilter, isLoading, setIsLoading, searchBook, setSearchBook }}>{children}</BookContext.Provider>
+    let allStates = { data, setData, filter, setFilter, isLoading, setIsLoading, searchBook, setSearchBook, cart, setCart }
+    return <BookContext.Provider value={allStates}>{children}</BookContext.Provider>
 }
 
 

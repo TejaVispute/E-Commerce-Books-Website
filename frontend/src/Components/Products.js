@@ -4,7 +4,7 @@ import "../Components css/products.css"
 import SkletonLoad from '../Components/SkletonLoad';
 import { useBook } from '../Context/BookContext';
 export default function Products() {
-    let { data, setData, filter, setFilter, isLoading, setIsLoading } = useBook();
+    let { data, filter, setFilter, isLoading, setSearchBook } = useBook();
     // console.log(value)
 
     const filterBooks = (value) => {
@@ -34,13 +34,22 @@ export default function Products() {
                         <div className="categories me-2">
                             <button onClick={() => filterBooks("relegius")} className='btn btn-outline-dark'>Relegius</button>
                         </div>
+                        {/* <div className="d-flex" role="search">
+                            <input className="form-control me-2" onChange={(e) => setSearchBook(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
+                        </div> */}
                     </div>
                     <hr />
                 </div>
 
                 <div className="books-collection container">
                     {isLoading ? <SkletonLoad /> : <BooksCard filter={filter} />}
+
                 </div>
+{/* 
+                <div className="books-collection container">
+                    {isLoading ? <SkletonLoad /> : <BooksCard filter={filter} />}
+                </div> */}
+
             </div>
         </>
     )
