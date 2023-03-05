@@ -38,6 +38,10 @@ export const Cart = () => {
             );
         }
     };
+
+    // total price of cart
+
+    const totalPrice = cart.reduce((price, item) => price + item.quantity * item.price, 0)
     return (
         <div className="container cart-container">
             <div className="heading-cart flex">
@@ -59,25 +63,31 @@ export const Cart = () => {
                             <div className="price-book">₹ {product.price}</div>
                             <div className="quantity-book">
                                 <button
-                                    className="btn btn-outline-dark me-2"
+                                    className="btn btn-outline-success me-2"
                                     onClick={() => HandleAdd(product)}
                                 >
                                     +
                                 </button>
                                 <span>{product.quantity}</span>
                                 <button
-                                    className="btn btn-outline-dark ms-2"
+                                    className="btn btn-outline-danger ms-2"
                                     onClick={() => HandleRemove(product)}
                                 >
                                     -
                                 </button>
                             </div>
-                            <div className="subtotal-book">500</div>
+                            <div className="subtotal-book">₹ {product.price * product.quantity}</div>
                         </div>
                     ))}
                 </>
 
             }
+
+            <div className="cart-items-total">
+                <div>
+                    Total Price <div className="total-items-total-price">{totalPrice}</div>
+                </div>
+            </div>
         </div>
     );
 };
