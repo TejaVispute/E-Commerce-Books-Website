@@ -9,13 +9,17 @@ import LogoutButton from "./LogoutButton";
 // This is navbar component
 
 function Nav() {
-  let { searchBook, setSearchBook } = useBook();
+  let { setSearchBook, cart } = useBook();
   // console.log(searchBook)
   let { user } = useAuth0();
+  // console.log(user.email)
+  // total cat items
 
+  // let totalItems = cart.reduce((accum, currval) => accum.quantity + currval.quantity)
+  // console.log(totalItems)
   return (
     <div className="nav-wrapper" style={{ position: "sticky", top: 0, zIndex: "1" }}>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#2874F0" }}>
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#FECA52" }}>
         <div className="container">
           <Link style={{ color: "white" }} className="navbar-brand fw-bolder fs-2" to="/">
             Bookers
@@ -56,6 +60,18 @@ function Nav() {
                   Products
                 </NavLink>
               </li>
+              {/* <li className="dropdown">
+
+                <span style={{ fontSize: "1.1rem", fontWeight: 500 }} className={({ isActive, isPending }) =>
+                  isActive ? "act" : "blue"
+                } >Categories</span>
+                <div class="dropdown-content">
+                  <Link to="/">Novels</Link>
+                  <Link to="/">Comics</Link>
+                  <Link to="/">Hinduism</Link>
+                </div>
+
+              </li> */}
               <li className="nav-item mx-2">
                 <NavLink
                   style={{ textDecoration: "none", fontWeight: 500 }}
@@ -79,6 +95,8 @@ function Nav() {
                   Contact
                 </NavLink>
               </li>
+
+
             </ul>
             <div
               className="d-flex me-1"
@@ -93,25 +111,51 @@ function Nav() {
                 aria-label="Search"
               />
             </div>
-            <div className="flex">
+            <div className="flex login-cart-icon-wrapper">
 
+              <div className="cart-icon-wrapper">
 
-              {user && <LogoutButton />}
-              {!user && <LoginButton />}
-
-              <div>
-                <NavLink to="/cart">
+                <NavLink to="/cart" style={{ textDecoration: "none" }}>
                   <i
                     class="fa-solid fa-bag-shopping"
                     style={{ color: "white" }}
                   ></i>
+                  <span className="upper-cart-count badge  rounded-pill">
+                    {cart.length === 0 ? 0 : cart.length}
+                  </span>
                 </NavLink>
               </div>
+
+
+              <div>
+                <div className="dropdown text-end " >
+                  <Link className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src={user ? user.picture : "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="} alt="mdo" width="32" height="32" class="rounded-circle" />
+                  </Link>
+
+                  <ul className="dropdown-menu text-small">
+
+                    <li className="dropdown-item">  {user ? ("Welcome " + user.name) : null}</li>
+                    <li><Link className="dropdown-item" >Settings</Link></li>
+                    <li><Link className="dropdown-item" >Profile</Link></li>
+                    <li>
+                      {user ? <LogoutButton /> : <LoginButton />}
+                    </li>
+
+
+                  </ul>
+
+
+                </div>
+                {/* {user && <LogoutButton />}
+                {!user && <LoginButton />} */}
+              </div>
+
             </div>
           </div>
         </div>
-      </nav>
-    </div>
+      </nav >
+    </div >
   );
 }
 

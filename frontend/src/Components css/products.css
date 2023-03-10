@@ -2,20 +2,35 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 1rem;
+    margin-top: 2rem;
 }
 
 .heading>h1 {
-    background-color: tomato;
+    background-color: #505459;
     font-weight: 700;
     color: white;
     font-size: 2rem;
 }
 
-.categories-wrapper{
+.categories-wrapper {
     justify-content: center;
     padding: 1rem;
 }
 
+.discount-banner {
+    margin: 3rem 10px;
+
+}
+
+.discount-banner img {
+    height: 120px;
+    width: 100%;
+    /* object-fit: cover; */
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 
 @media screen and (max-width: 992px) {

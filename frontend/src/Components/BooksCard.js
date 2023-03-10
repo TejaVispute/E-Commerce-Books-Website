@@ -14,12 +14,12 @@ function BooksCard({ filter }) {
         )).map((e) => {
           let url = `/bookdetail/${e._id}`
           return (
-            <Link to={url} style={{ textDecoration: "none", color: " black" }}>
-              <div class="card text-center h-100">
-                <img src={e.image} class="card-img-top" alt="not found" height="250px" />
-                <div class="card-body">
-                  <h5 class="card-title">{e.name.substring(0, 10)}...</h5>
-                  <p class="card-text">Categorie: {e.categories}</p>
+            <Link to={url} style={{ textDecoration: "none", color: " black" }} key={e._id}>
+              <div className="card text-center h-100">
+                <img src={e.image} className="card-img-top" alt="not found" height="250px" />
+                <div className="card-body">
+                  <h5 className="card-title">{e.name.substring(0, 10)}...</h5>
+                  <p className="card-text">Categorie: {e.categories}</p>
                 </div>
 
               </div>

@@ -10,7 +10,7 @@ function BookDetails() {
     let { id } = useParams();
 
     let findBook = data.find((book) => book._id === id);
-    // console.log(findBook)
+    const Discount = ((findBook.price - findBook.originalPrice) / findBook.price * 100).toFixed(0);
 
 
     function addToCart(findBook) {
@@ -48,19 +48,24 @@ function BookDetails() {
         <>
             <div className="product-detail container">
                 <div className="topbar">
-                    <i className="fa-solid fa-arrow-left"></i>  <Link to='/'>back</Link>
+                    <Link to='/' style={{ textDecoration: "none", color: "black" }}> <i className="fa-solid fa-arrow-left p-2" style={{ fontSize: "1.5rem" }}></i></Link>
                 </div>
                 <div className="detail-wrapper flex">
 
                     <div className="image-left-section">
-                        <img src={findBook.image} alt="" />
+                        <img src={findBook.image} alt="not found" />
                     </div>
 
                     <div className="book-detail-right-section">
-                        <h1>{findBook.name}</h1>
-                        <h1>{findBook.price} /-</h1>
+                        <h3>{findBook.name}</h3>
+                        <h5>₹ {findBook.price} /- <span className='ms-4' style={{ textDecoration: "line-through" }}>₹ {findBook.originalPrice}</span> <span>{Discount} % off</span></h5>
+                        <div className='raitings'>{findBook.rating} <i class="fa-solid fa-star"></i></div>
+                        <hr />
+                        <div className="description">
+                            <p> <span className='fw-bold'>Description:-</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dicta, vero excepturi pariatur aliquam animi voluptatibus omnis ea earum eaque suscipit eligendi quasi quisquam sequi, perspiciatis sed doloremque enim corrupti laborum. Voluptatem tempore rem dolor cumque laudantium iste ipsam et quos vitae dolore, impedit veniam sunt fugiat nobis. Ipsa, exercitationem.</p>
+                        </div>
                         <div className="add-to-cart">
-                            <button onClick={() => addToCart(findBook)} className='btn btn-primary'>Add to cart</button>
+                            <button onClick={() => addToCart(findBook)} className='btn btn-outline-success'>Add to cart</button>
                         </div>
                     </div>
 

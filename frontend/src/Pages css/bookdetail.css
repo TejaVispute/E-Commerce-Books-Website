@@ -1,17 +1,35 @@
-.detail-wrapper{
+.detail-wrapper {
     width: 100%;
     height: 85vh;
 }
-.image-left-section{
+
+.image-left-section {
     width: 40%;
-    padding: 1rem;
-}
-.image-left-section img{
-    width: 100%;
     height: 100%;
+    padding: 1rem;
 }
 
-.book-detail-right-section{
+.image-left-section img {
+    width: 100%;
+    height: 85%;
+}
+
+.book-detail-right-section {
     width: 60%;
+    height: 100%;
     padding: 1rem;
+}
+
+.product-detail {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 80vh;
+    margin-top: 1rem;
+}
+
+.raitings{
+    display: inline;
+    background-color:#388e3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
 }

@@ -8,6 +8,8 @@ import Error from './Pages/Error';
 import BookDetails from './Pages/BookDetails';
 import AllBooks from './Pages/AllBooks';
 import { Cart } from './Pages/Cart';
+import { Footer } from './Pages/Footer';
+// import Login from './Components/Login';
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='*' element={<Error />} />
       </Routes>
-  
+      <Footer />
     </div>
   )
 

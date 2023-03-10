@@ -1,0 +1,60 @@
+.import_features {
+    height: 10rem;
+    /* background-color: rosybrown; */
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+
+
+}
+
+.all-content-wrapper>div {
+    background-color: white;
+    /* border: 1px solid black; */
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.veicle-wrapper,
+.card-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.veicle-wrapper .veicleimg {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.veicle-wrapper .veicleimg i {
+    font-size: 2.5rem;
+    color: orange;
+}
+
+.all-content-wrapper>div:hover {
+    transform: scale(1.1)
+}
+
+
+@media screen and (max-width: 1200px) {
+    .all-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .import_features {
+        height: 32rem;
+    }
+}
