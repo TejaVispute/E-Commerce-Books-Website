@@ -52,9 +52,20 @@
 
 @media screen and (max-width: 1200px) {
     .all-content-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .import_features {
+        height: 25rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .all-content-wrapper {
         grid-template-columns: 1fr;
     }
+
     .import_features {
-        height: 32rem;
+        height: auto;
     }
 }

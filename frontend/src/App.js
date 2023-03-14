@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
@@ -9,9 +10,20 @@ import BookDetails from './Pages/BookDetails';
 import AllBooks from './Pages/AllBooks';
 import { Cart } from './Pages/Cart';
 import { Footer } from './Pages/Footer';
+
+import { Signup } from './Pages/Signup';
+import Login from './Pages/Login';
 // import Login from './Components/Login';
 
+
+
+
+
+
+
 function App() {
+
+
   return (
     <div className="App">
       <Nav />
@@ -22,6 +34,8 @@ function App() {
         <Route path='/bookdetail/:id' element={<BookDetails />}></Route>
         <Route path='/allbooks' element={<AllBooks />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
+        <Route path='/signup' element={<Signup />}></Route>
+        <Route path='/login' element={<Login />}></Route>
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

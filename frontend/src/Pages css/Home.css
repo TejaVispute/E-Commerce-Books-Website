@@ -1,0 +1,22 @@
+.explore-all {
+    /* background-color: rebeccapurple; */
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-samples-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+/* responsive sample cards */
+
+@media screen and (max-width: 1100px) {
+    #home-samples-wrapper {
+        /* grid-template-columns: 1fr 1fr; */
+    }
+
+}

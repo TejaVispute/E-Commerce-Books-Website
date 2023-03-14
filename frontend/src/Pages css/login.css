@@ -1,0 +1,19 @@
+.login-form-wrapper {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login-image-container {
+    width: 50%;
+}
+
+.left-login-image-container img {
+    width: 100%;
+}
+
+.right-form-wrapper {
+    width: 50%;
+    padding: 2rem;
+}

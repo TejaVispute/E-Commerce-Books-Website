@@ -3,9 +3,11 @@ import { useBook } from "../Context/BookContext";
 import "../Pages css/cart.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import CartIsEmpty from "../Components/CartIsEmpty";
+import { useNavigate } from "react-router-dom";
 export const Cart = () => {
     const { cart, setCart } = useBook();
-    const { user } = useAuth0();
+    // const { user } = useAuth0();
+    const navigate = useNavigate();
     // for increment cart quantity
 
     const HandleAdd = (product) => {
@@ -48,12 +50,42 @@ export const Cart = () => {
 
 
 
-    // useEffect(() => {
-    //     localStorage.setItem("cart", JSON.stringify(cart))
-    // })
+    const callAboutPage = async () => {
+
+        try {
+            const res = await fetch("http://localhost:4000/cart", {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                credentials: "include"
+            })
+
+            // console.log(res);
+            const data = await res.json();
+            // console.log(data);
+
+            if (!res.status === 200) {
+                const error = new Error(res.error)
+                throw error
+            }
+
+        } catch (error) {
+            console.log(error)
+            navigate("/")
+        }
+    }
+
+    useEffect(() => {
+        callAboutPage();
+    })
+
+
+
     return (
         <>
-            {user && <div className="container cart-container">
+            <div className="container cart-container">
 
                 {cart.length === 0 ? <CartIsEmpty /> :
                     <>
@@ -103,9 +135,9 @@ export const Cart = () => {
                         Total Price <div className="total-items-total-price">{totalPrice}</div>
                     </div>
                 </div>}
-            </div>}
+            </div>
 
-            {!user && <h1>Please Login First</h1>}
+            {/* {!user && <h1>Please Login First</h1>} */}
         </>
     );
 };

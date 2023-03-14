@@ -2,10 +2,12 @@ import React from 'react'
 import '../Pages css/allbooks.css';
 import BooksCard from '../Components/BooksCard';
 import { useBook } from '../Context/BookContext';
+import SkletonLoad from '../Components/SkletonLoad';
+import { AnimationLoader } from '../Components/AnimationLoader';
 function AllBooks() {
 
 
-    let { filter, setFilter, data } = useBook();
+    let { filter, setFilter, data, isLoading } = useBook();
 
 
 
@@ -20,15 +22,15 @@ function AllBooks() {
         // All products page,all products wil display here
         <>
             <div className="main-allbook-wrapper">
-                <div className="new-arriwals flex" >
+                {/* <div className="new-arriwals flex" >
                     <div className='me-2'><h4>New Arrivals By Categories</h4></div>
                     <div > <span className='me-2'>Home</span>  <i class="fa-solid fa-house"></i></div>
-                </div >
+                </div > */}
 
                 <div className='text-center'>
                     <div className="categories-wrapper flex">
                         <div className="categories me-2">
-                            <button onClick={() => setFilter(data)}className='btn btn-outline-dark'>All </button>
+                            <button onClick={() => setFilter(data)} className='btn btn-outline-dark'>All </button>
                         </div>
 
                         <div className="categories me-2">
@@ -50,7 +52,7 @@ function AllBooks() {
 
                 <div className="book-section">
 
-                    <BooksCard filter={filter} />
+                    {isLoading ? <AnimationLoader /> : <BooksCard filter={filter} />}
                 </div>
 
 

@@ -48,7 +48,7 @@ function BookDetails() {
         <>
             <div className="product-detail container">
                 <div className="topbar">
-                    <Link to='/' style={{ textDecoration: "none", color: "black" }}> <i className="fa-solid fa-arrow-left p-2" style={{ fontSize: "1.5rem" }}></i></Link>
+                    <Link to='/allbooks' style={{ textDecoration: "none", color: "black" }}> <i className="fa-solid fa-arrow-left p-2" style={{ fontSize: "1.5rem" }}></i></Link>
                 </div>
                 <div className="detail-wrapper flex">
 

@@ -8,9 +8,10 @@ import LogoutButton from "./LogoutButton";
 
 // This is navbar component
 
-function Nav() {
+function Nav({ authenticatedUser }) {
+  // console.log(authenticatedUser)
   let { setSearchBook, cart } = useBook();
-  // console.log(searchBook)
+
   let { user } = useAuth0();
   // console.log(user.email)
   // total cat items
