@@ -17,3 +17,26 @@
     width: 50%;
     padding: 2rem;
 }
+
+
+@media only screen and (max-width: 900px) {
+    .login-form-wrapper {
+        flex-direction: column;
+        height: 100vh;
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+
+    .left-login-image-container {
+        width: 100%;
+    }
+
+    .left-login-image-container img {
+        width: 100%;
+    }
+
+    .right-form-wrapper {
+        width: 100%;
+       
+    }
+}

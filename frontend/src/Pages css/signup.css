@@ -1,0 +1,35 @@
+.signup-container {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 90vh; */
+}
+
+.form-image-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section {
+    width: 50%;
+    padding: 2rem;
+}
+
+
+
+@media only screen and (max-width: 991px) {
+    .signup-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-image-section {
+        width: 100%;
+    }
+    .form-section{
+        width: 100%;
+    }
+}

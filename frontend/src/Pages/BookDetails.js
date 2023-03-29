@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useBook } from '../Context/BookContext';
 import '../Pages css/bookdetail.css'
@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function BookDetails() {
     const { data, cart, setCart } = useBook();
-    console.log(cart)
+
     let { id } = useParams();
 
     let findBook = data.find((book) => book._id === id);
@@ -44,6 +44,15 @@ function BookDetails() {
             setCart([...cart, { ...findBook, quantity: 1 }])
         }
     }
+
+
+    // adding cart items in local storage
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+    }, [cart])
+
+
     return (
         <>
             <div className="product-detail container">
@@ -88,4 +97,4 @@ function BookDetails() {
     )
 }
 
-export default BookDetails
+export default BookDetails;

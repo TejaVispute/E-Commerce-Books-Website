@@ -100,9 +100,32 @@ router.post('/signin', async (req, res) => {
 
 router.get('/cart', authenticate, (req, res) => {
     console.log("This is cart section page")
-    console.log(req.rootUser)
-    res.send(req.rootUser)
+    // console.log(req.rootUser)
+    res.send(req.rootUser);
 })
+
+// proceed to buy route
+router.get('/placeorder', authenticate, (req, res) => {
+    console.log("This is placeorder section")
+    // console.log(req.rootUser)
+    res.send(req.rootUser);
+})
+
+
+router.get('/logout', authenticate, async (req, res) => {
+    req.rootUser.tokens = [];
+
+    console.log("this is logout page");
+    res.clearCookie('jwtauth', { path: '/' })
+    await req.rootUser.save();
+    res.status(200).send("User Logout");
+})
+
+router.post('/orders', (req, res) => {
+    console.log("this is order page");
+
+})
+
 
 
 module.exports = router

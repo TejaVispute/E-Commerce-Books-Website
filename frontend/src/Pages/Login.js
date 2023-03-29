@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthenticateContext';
 import '../Pages css/login.css'
-const Login = () => {
 
+const Login = () => {
+    const { state, dispatch } = useAuth();
+    // console.log(state)
 
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
@@ -28,6 +31,7 @@ const Login = () => {
         if (res.status === 400 || !res) {
             window.alert("invlid credentials")
         } else {
+            dispatch({ type: "USER", payload: true })
             window.alert("login successful")
             naviagate("/")
         }
@@ -41,20 +45,20 @@ const Login = () => {
             </div>
             <div className="right-form-wrapper">
                 <form method='POST'>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name='email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)} value={email} />
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div className="mb-3">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                        <input type="email" name='email' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)} value={email} />
+                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name='password' class="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)} value={password} />
+                    <div className="mb-3">
+                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                        <input type="password" name='password' className="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div className="mb-3 form-check">
+                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
-                    <button onClick={loginUser} type="submit" class="btn btn-primary">Submit</button>
+                    <button onClick={loginUser} type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

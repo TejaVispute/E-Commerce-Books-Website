@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
@@ -13,15 +12,21 @@ import { Footer } from './Pages/Footer';
 
 import { Signup } from './Pages/Signup';
 import Login from './Pages/Login';
+import { Logout } from './Components/Logout';
+import { PlaceOrder } from './Pages/PlaceOrder';
+import { useBook } from './Context/BookContext';
 // import Login from './Components/Login';
 
 
 
 
 
-
-
 function App() {
+
+
+  let { setCart, cart } = useBook()
+  console.log(cart);
+
 
 
   return (
@@ -36,6 +41,8 @@ function App() {
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        <Route path='/logout' element={<Logout />}></Route>
+        <Route path='/placeorder' element={<PlaceOrder />}></Route>
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

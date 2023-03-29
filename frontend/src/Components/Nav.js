@@ -1,18 +1,19 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Components css/Nav.css";
+import { useAuth } from "../Context/AuthenticateContext";
 import { useBook } from "../Context/BookContext";
-import { useAuth0 } from "@auth0/auth0-react"; //this is for login button
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
+
 
 // This is navbar component
 
-function Nav({ authenticatedUser }) {
+function Nav() {
   // console.log(authenticatedUser)
   let { setSearchBook, cart } = useBook();
+  const { state, dispatch } = useAuth();
+  console.log(state)
 
-  let { user } = useAuth0();
+
   // console.log(user.email)
   // total cat items
 
@@ -25,7 +26,7 @@ function Nav({ authenticatedUser }) {
           <Link style={{ color: "white" }} className="navbar-brand fw-bolder fs-2" to="/">
             Bookers
           </Link>
-          <button
+          <button style={{border:0}}
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -131,17 +132,35 @@ function Nav({ authenticatedUser }) {
               <div>
                 <div className="dropdown text-end " >
                   <Link className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src={user ? user.picture : "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="} alt="mdo" width="32" height="32" class="rounded-circle" />
+                    <img src={"https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="} alt="mdo" width="32" height="32" class="rounded-circle" />
                   </Link>
 
                   <ul className="dropdown-menu text-small">
 
-                    <li className="dropdown-item">  {user ? ("Welcome " + user.name) : null}</li>
+                    <li className="dropdown-item"> user name</li>
                     <li><Link className="dropdown-item" >Settings</Link></li>
                     <li><Link className="dropdown-item" >Profile</Link></li>
-                    <li>
-                      {user ? <LogoutButton /> : <LoginButton />}
-                    </li>
+
+
+                    {
+                      state && <>
+
+                        <li>
+                          <Link to="/logout" className="dropdown-item" >Logout</Link>
+                        </li>
+                      </>
+                    }
+
+                    {!state && <>
+                      <li>
+                        <Link to="/signup" className="dropdown-item" >Signup</Link>
+                      </li>
+                      <li>
+                        <Link to="/login" className="dropdown-item" >Login</Link>
+                      </li>
+
+                    </>}
+
 
 
                   </ul>

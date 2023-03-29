@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import SkletonLoad from '../Components/SkletonLoad';
 
 
+
 const Home = () => {
   let { filter, setFilter, data, isLoading } = useBook();
   // console.log(isLoading)
@@ -20,13 +21,16 @@ const Home = () => {
   }, [])
 
 
+  // let cookie = Cookies.get('jwtauth');
+  // console.log(cookie)
+
   let lodingstylle = {
-     height: "85vh",
-      width: "100%",
-      display:"flex",
-      justifyContent:"center",
-      alignItems:"center",
-     }
+    height: "85vh",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 
   return (
     <>
@@ -36,7 +40,7 @@ const Home = () => {
       {
 
         isLoading ? <div className="Home-loader" style={lodingstylle}>
-          <img width={80} src="https://uploads.toptal.io/blog/image/122376/toptal-blog-image-1489080120310-07bfc2c0ba7cd0aee3b6ba77f101f493.gif" alt="" />
+          <img width={60} src="https://uploads.toptal.io/blog/image/122376/toptal-blog-image-1489080120310-07bfc2c0ba7cd0aee3b6ba77f101f493.gif" alt="" />
         </div> : <div>
 
           <Carosel />
@@ -50,7 +54,7 @@ const Home = () => {
 
           <div id='home-samples-wrapper' className="container">
 
-            {isLoading ? <SkletonLoad /> : <BooksCard filter={filter} />}
+            <BooksCard filter={filter} />
 
           </div>
 
