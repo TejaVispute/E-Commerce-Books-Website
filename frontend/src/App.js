@@ -9,12 +9,11 @@ import BookDetails from './Pages/BookDetails';
 import AllBooks from './Pages/AllBooks';
 import { Cart } from './Pages/Cart';
 import { Footer } from './Pages/Footer';
-
 import { Signup } from './Pages/Signup';
 import Login from './Pages/Login';
 import { Logout } from './Components/Logout';
 import { PlaceOrder } from './Pages/PlaceOrder';
-import { useBook } from './Context/BookContext';
+import OrderHistory from './Pages/OrderHistory';
 // import Login from './Components/Login';
 
 
@@ -22,10 +21,6 @@ import { useBook } from './Context/BookContext';
 
 
 function App() {
-
-
-  let { setCart, cart } = useBook()
-  console.log(cart);
 
 
 
@@ -43,6 +38,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/logout' element={<Logout />}></Route>
         <Route path='/placeorder' element={<PlaceOrder />}></Route>
+        <Route path='/previusorders' element={<OrderHistory />}></Route>
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

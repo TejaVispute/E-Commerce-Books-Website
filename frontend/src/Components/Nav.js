@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Components css/Nav.css";
 import { useAuth } from "../Context/AuthenticateContext";
 import { useBook } from "../Context/BookContext";
+import { useNavigate } from "react-router-dom";
 
 
 // This is navbar component
@@ -10,8 +11,9 @@ import { useBook } from "../Context/BookContext";
 function Nav() {
   // console.log(authenticatedUser)
   let { setSearchBook, cart } = useBook();
-  const { state, dispatch } = useAuth();
-  console.log(state)
+  let { isLoggedIn, setIsLoggedIn } = useAuth();
+  let navigate = useNavigate()
+  console.log(isLoggedIn);
 
 
   // console.log(user.email)
@@ -19,6 +21,42 @@ function Nav() {
 
   // let totalItems = cart.reduce((accum, currval) => accum.quantity + currval.quantity)
   // console.log(totalItems)
+
+
+
+
+  const getUserDetails = async () => {
+
+    try {
+      const res = await fetch("http://localhost:4000", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      })
+
+      // console.log(res);
+      const data = await res.json();
+      setIsLoggedIn(data)
+      console.log(data);
+
+      if (!res.status === 200) {
+        const error = new Error(res.error)
+        throw error
+
+      }
+
+    } catch (error) {
+      console.log(error)
+      navigate("/")
+    }
+  }
+
+  useEffect(() => {
+    getUserDetails();
+  }, [])
   return (
     <div className="nav-wrapper" style={{ position: "sticky", top: 0, zIndex: "1" }}>
       <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#FECA52" }}>
@@ -26,7 +64,7 @@ function Nav() {
           <Link style={{ color: "white" }} className="navbar-brand fw-bolder fs-2" to="/">
             Bookers
           </Link>
-          <button style={{border:0}}
+          <button style={{ border: 0 }}
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -143,7 +181,7 @@ function Nav() {
 
 
                     {
-                      state && <>
+                      isLoggedIn && <>
 
                         <li>
                           <Link to="/logout" className="dropdown-item" >Logout</Link>
@@ -151,7 +189,7 @@ function Nav() {
                       </>
                     }
 
-                    {!state && <>
+                    {!isLoggedIn && <>
                       <li>
                         <Link to="/signup" className="dropdown-item" >Signup</Link>
                       </li>

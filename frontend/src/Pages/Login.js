@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../Context/AuthenticateContext';
 import '../Pages css/login.css'
+import { useAuth } from '../Context/AuthenticateContext';
 
 const Login = () => {
-    const { state, dispatch } = useAuth();
-    // console.log(state)
+    let { isLoggedIn, setIsLoggedIn } = useAuth();
+    // console.log(isLoggedIn)
 
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
@@ -30,10 +30,12 @@ const Login = () => {
 
         if (res.status === 400 || !res) {
             window.alert("invlid credentials")
+            setIsLoggedIn(false)
         } else {
-            dispatch({ type: "USER", payload: true })
+
             window.alert("login successful")
             naviagate("/")
+            setIsLoggedIn(true)
         }
 
     }

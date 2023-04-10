@@ -5,7 +5,8 @@ import { useAuth } from '../Context/AuthenticateContext';
 
 export const Logout = () => {
 
-    const { state, dispatch } = useAuth();
+    let { isLoggedIn, setIsLoggedIn } = useAuth();
+
 
     let navigate = useNavigate();
     useEffect(() => {
@@ -17,8 +18,7 @@ export const Logout = () => {
             },
             credentials: "include"
         }).then((res) => {
-
-            dispatch({ type: "USER", payload: false })
+            setIsLoggedIn(false)
 
             setTimeout(() => {
                 navigate('/')
