@@ -10,7 +10,7 @@ import axios from "axios"
 
 export const PlaceOrder = () => {
     const navigate = useNavigate();
-    const { cart } = useBook()
+    const { cart, setCart } = useBook()
     const { useData, setUserData } = useAuth();
     let userEmail = useData.email;
 
@@ -96,9 +96,10 @@ export const PlaceOrder = () => {
                 // alert(response.razorpay_order_id);
                 // alert(response.razorpay_signature)
                 // console.log(response, "Razorpay Reaponse");
-                await axios.post("http://localhost:4000/placeorder", { cart, userEmail, response })
-                setUserData([])
-                const res = await axios.get("http://localhost:4000/placeorderres");
+                await axios.post("http://localhost:4000/placeorder", { cart, userEmail, response, totalPrice })
+                setCart([]);
+                localStorage.removeItem("cart");
+                navigate("/previusorders")
                 console.log(res);
             },
 

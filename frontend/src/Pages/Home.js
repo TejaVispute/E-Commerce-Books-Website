@@ -44,11 +44,10 @@ const Home = () => {
         </div> : <div>
 
           <Carosel />
-          <ImportantFeatures />
           <div className='container'>
-            <hr />
-            <h1 className='text-center fw-bolder'>Here are our some samples</h1>
-            <hr />
+            {/* <hr /> */}
+            <h1 className='text-center fw-bolder p-4'>Here are our some samples</h1>
+            {/* <hr /> */}
 
           </div>
 
@@ -65,6 +64,10 @@ const Home = () => {
             </h1>
           </div>
           {/* <Featured /> */}
+
+          {/* important features like secure payent india delivery verified products quick support */}
+          <ImportantFeatures />
+
         </div>
       }
 

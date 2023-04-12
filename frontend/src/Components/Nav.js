@@ -59,10 +59,10 @@ function Nav() {
   }, [])
   return (
     <div className="nav-wrapper" style={{ position: "sticky", top: 0, zIndex: "1" }}>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#FECA52" }}>
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0275dd " }}>
         <div className="container">
           <Link style={{ color: "white" }} className="navbar-brand fw-bolder fs-2" to="/">
-            Bookers
+           Bookerz
           </Link>
           <button style={{ border: 0 }}
             className="navbar-toggler"
@@ -79,7 +79,7 @@ function Nav() {
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
               <li className="nav-item mx-2">
                 <NavLink
-                  style={{ textDecoration: "none", fontWeight: 500 }}
+                  style={{ textDecoration: "none", fontWeight: 700 }}
                   className={({ isActive, isPending }) =>
                     isActive ? "act" : "blue"
                   }
@@ -91,7 +91,7 @@ function Nav() {
               </li>
               <li className="nav-item mx-2">
                 <NavLink
-                  style={{ textDecoration: "none", fontWeight: 500 }}
+                  style={{ textDecoration: "none", fontWeight: 700 }}
                   className={({ isActive, isPending }) =>
                     isActive ? "act" : "blue"
                   }
@@ -102,7 +102,7 @@ function Nav() {
               </li>
               {/* <li className="dropdown">
 
-                <span style={{ fontSize: "1.1rem", fontWeight: 500 }} className={({ isActive, isPending }) =>
+                <span style={{ fontSize: "1.1rem", fontWeight: 700 }} className={({ isActive, isPending }) =>
                   isActive ? "act" : "blue"
                 } >Categories</span>
                 <div class="dropdown-content">
@@ -114,7 +114,7 @@ function Nav() {
               </li> */}
               <li className="nav-item mx-2">
                 <NavLink
-                  style={{ textDecoration: "none", fontWeight: 500 }}
+                  style={{ textDecoration: "none", fontWeight: 700 }}
                   className={({ isActive, isPending }) =>
                     isActive ? "act" : "blue"
                   }
@@ -126,7 +126,7 @@ function Nav() {
 
               <li className="nav-item mx-2">
                 <NavLink
-                  style={{ textDecoration: "none", fontWeight: 500 }}
+                  style={{ textDecoration: "none", fontWeight: 700 }}
                   className={({ isActive, isPending }) =>
                     isActive ? "act" : "blue"
                   }
@@ -135,6 +135,21 @@ function Nav() {
                   Contact
                 </NavLink>
               </li>
+
+
+              {
+                isLoggedIn ? <li className="nav-item mx-2">
+                  <NavLink
+                    style={{ textDecoration: "none", fontWeight: 700 }}
+                    className={({ isActive, isPending }) =>
+                      isActive ? "act" : "blue"
+                    }
+                    to="/previusorders"
+                  >
+                    Orders
+                  </NavLink>
+                </li> : null
+              }
 
 
             </ul>
@@ -157,7 +172,7 @@ function Nav() {
 
                 <NavLink to="/cart" style={{ textDecoration: "none" }}>
                   <i
-                    class="fa-solid fa-bag-shopping"
+                    className="fa-solid fa-bag-shopping"
                     style={{ color: "white" }}
                   ></i>
                   <span className="upper-cart-count badge  rounded-pill">
@@ -169,39 +184,39 @@ function Nav() {
 
               <div>
                 <div className="dropdown text-end " >
-                  <Link className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  {/* <Link className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src={"https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="} alt="mdo" width="32" height="32" class="rounded-circle" />
-                  </Link>
+                  </Link> */}
 
-                  <ul className="dropdown-menu text-small">
-
+                  {/* <ul className="dropdown-menu text-small"> */}
+                  {/* 
                     <li className="dropdown-item"> user name</li>
                     <li><Link className="dropdown-item" >Settings</Link></li>
-                    <li><Link className="dropdown-item" >Profile</Link></li>
+                    <li><Link className="dropdown-item" >Profile</Link></li> */}
 
 
-                    {
-                      isLoggedIn && <>
+                  {
+                    isLoggedIn && <>
 
-                        <li>
-                          <Link to="/logout" className="dropdown-item" >Logout</Link>
-                        </li>
-                      </>
-                    }
+                      {/* <button className="btn btn-primary"> */}
+                      <Link to="/logout" className="btn btn-danger rounded-pill" >Logout <i className="fa-solid fa-arrow-right"></i></Link>
 
-                    {!isLoggedIn && <>
-                      <li>
-                        <Link to="/signup" className="dropdown-item" >Signup</Link>
-                      </li>
-                      <li>
-                        <Link to="/login" className="dropdown-item" >Login</Link>
-                      </li>
+                    </>
+                  }
 
-                    </>}
+                  {!isLoggedIn && <>
+                    {/* <button> */}
+                    <Link to="/signup" className="btn btn-secondary rounded-pill mx-2" >Signup</Link>
+                    {/* </button> */}
+                    {/* <button> */}
+                    <Link to="/login" className="btn btn-success  rounded-pill" >Login</Link>
+                    {/* </button> */}
+
+                  </>}
 
 
 
-                  </ul>
+                  {/* </ul> */}
 
 
                 </div>

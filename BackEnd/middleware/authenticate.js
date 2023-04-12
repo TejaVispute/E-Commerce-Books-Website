@@ -24,7 +24,6 @@ const Authenticate = async (req, res, next) => {
         req.email = rootUser.email;
 
         // console.log(req.token, req.rootUser, req.userId, req.email);
-
         next()
     } catch (error) {
         console.log("catch error: " + error)

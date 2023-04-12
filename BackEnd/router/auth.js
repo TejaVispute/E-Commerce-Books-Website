@@ -54,6 +54,7 @@ router.post("/register", async (req, res) => {
       // creating new empty cart when user regesters
       const emptyCartCreate = new EmptyCart({ email: email });
       const createdCartResult = await emptyCartCreate.save();
+      
       console.log(createdCartResult);
       res.status(201).json({ message: "user registered successfully" });
     }
@@ -160,8 +161,8 @@ router.get("/logout", Authenticate, async (req, res) => {
 // });
 
 router.post("/placeorder", async (req, res) => {
-  let { userEmail, cart } = req.body;
-
+  let { userEmail, cart, response } = req.body;
+  // console.log(response);
 
 
   // console.log(userLogin, "from place order");
@@ -188,7 +189,6 @@ router.post("/placeorder", async (req, res) => {
 router.get("/orderHistory", Authenticate, async (req, res) => {
   let userEmail = req.rootUser.email;
   const orderHistory = await Cart.findOne({ email: userEmail });
-  console.log(orderHistory.items);
 
   res.json({ orderHistory })
 

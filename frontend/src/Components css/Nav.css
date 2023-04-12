@@ -1,11 +1,11 @@
 .act {
-    color: white;
-    border-bottom: 1px solid white;
+    color: black;
+    border-bottom: 1px solid black;
     font-weight: 800;
 }
 
 .blue {
-    color: black;
+    color: white;
 }
 
 .nav-item {

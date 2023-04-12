@@ -31,17 +31,39 @@ const OrderHistory = () => {
         getUserHistory();
     }, [])
     return (
-        <div>
-            {
-                prevHistory.map((e) => (
+        <div className='table-responsive'>
 
-                    <>
-                        <div>{e.name}</div>
-                        <div>{e.quantity}</div>
-                        <img src={e.image} alt="" />
-                    </>
-                ))
-            }
+            <div className="container  py-5">
+                <table className="table table-bordered table-hover">
+                    <thead className="thead-dark">
+                        <tr>
+                            <th scope="col">Sr.No</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            prevHistory.map((orderhistoryinfo, index) => (
+                                <tr>
+                                    <th scope="row">{index}</th>
+                                    <td>{orderhistoryinfo._id}</td>
+                                    <td>{orderhistoryinfo.price} /-</td>
+                                    <td>{orderhistoryinfo.name}</td>
+                                    <td>{orderhistoryinfo.quantity}</td>
+                                    <td>pending</td>
+                                </tr>
+                            ))
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     )
 }

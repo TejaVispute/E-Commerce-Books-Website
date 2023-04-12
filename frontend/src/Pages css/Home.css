@@ -16,7 +16,21 @@
 
 @media screen and (max-width: 1100px) {
     #home-samples-wrapper {
-        /* grid-template-columns: 1fr 1fr; */
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
 }
+@media screen and (max-width: 719px) {
+    #home-samples-wrapper {
+        grid-template-columns: 1fr 1fr ;
+    }
+
+}
+@media screen and (max-width: 450px) {
+    #home-samples-wrapper {
+        grid-template-columns: 1fr ;
+    }
+
+}
+
+

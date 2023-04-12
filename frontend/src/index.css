@@ -8,3 +8,10 @@ body {
 .flex {
   display: flex;
 }
+*{
+  transition: 0.4s ease;
+}
+
+body,html{
+  scroll-behavior: smooth;
+}

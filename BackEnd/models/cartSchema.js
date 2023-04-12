@@ -50,6 +50,11 @@ const cartSchema = new mongoose.Schema({
         type: String,
     },
     items: [cartItemSchema],
+    date: {
+        type: Date,
+
+        default: Date.now
+    }
 
 });
 
