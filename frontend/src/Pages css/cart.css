@@ -49,11 +49,13 @@
 
 .cart-book-item {
     /* background-color: red; */
-    height: 4rem;
+    height: 5rem;
     align-items: center;
     text-align: center;
     /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     margin-bottom: 1rem;
+    
+    border-bottom: 0.5px dashed grey;
 
 }
 

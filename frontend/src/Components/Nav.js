@@ -60,10 +60,10 @@ function Nav() {
   // #0275dd
   return (
     <div className="nav-wrapper" style={{ position: "sticky", top: 0, zIndex: "1" }}>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0275dd" }}>
+      <nav className="navbar navbar-expand-lg" >
         <div className="container">
           <Link style={{ color: "white" }} className="navbar-brand fw-bolder fs-2" to="/">
-            <img width={90} height={50} src="https://i.imgur.com/ZNLgHtA.png" alt="" />
+            <img width={60}  src="https://www.graphicsprings.com/filestorage/stencils/2f3bdb9733c4a68659dc2900a7595fea.png?width=500&height=500" alt="" />
           </Link>
           <button style={{ border: 0 }}
             className="navbar-toggler"
