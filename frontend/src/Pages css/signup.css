@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 90vh; */
+    height: 80vh;
 }
 
 .form-image-section {
@@ -29,7 +29,8 @@
     .form-image-section {
         width: 100%;
     }
-    .form-section{
+
+    .form-section {
         width: 100%;
     }
 }

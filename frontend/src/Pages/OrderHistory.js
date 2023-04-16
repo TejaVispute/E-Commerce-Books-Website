@@ -51,7 +51,7 @@ const OrderHistory = () => {
                                 <tr>
                                     <th scope="row">{index}</th>
                                     <td>{orderhistoryinfo._id}</td>
-                                    <td>{orderhistoryinfo.price} /-</td>
+                                    <td>{orderhistoryinfo.price * orderhistoryinfo.quantity} /-</td>
                                     <td>{orderhistoryinfo.name}</td>
                                     <td>{orderhistoryinfo.quantity}</td>
                                     <td>pending</td>

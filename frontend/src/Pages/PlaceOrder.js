@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthenticateContext";
 import { useBook } from "../Context/BookContext";
 import axios from "axios"
-
+import "../Pages css/Placeorder.css"
 // show Razorpay
 
 
@@ -119,27 +119,87 @@ export const PlaceOrder = () => {
 
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-8">
-                    <div className="row">
-                        <h5>{useData.name}</h5>
-                        <h5>{useData.email}</h5>
-                        <h5>{useData.address}</h5>
+        <div className="container order-details-wrapper">
+            <div className="left-orders-details">
+                <div className="user-address p-3">
+                    <div> Deliver to : <span className="fw-bold">{useData.name}.</span></div>
 
-                    </div>
-
-                    <div className="row">
-                        {cart.map((e) => (
-                            <div>{e.name}</div>
-                        ))}
-                    </div>
+                    <div>Address: {useData.address}.</div>
                 </div>
-                <div className="col-lg-4">
-                    <div className="row">Total Price:{totalPrice}</div>
-                    <button onClick={displayRazorpay} className="btn btn-outline-success">Proceed to pay</button>
+
+                <div className="user-order-products p-3 ">
+                    {
+                        cart.map((e) => (
+                            <div className="user-order-wrapper flex gap-2 mt-4">
+                                <div className="order-procuct-image">
+                                    <img src={e.image} alt="" />
+                                </div>
+                                <div className="order-product-details flex justify-content-between p-3">
+                                    <div>
+                                        <div>{e.name}</div>
+                                        <div>₹ {e.price}  <span className="text-decoration-line-through">₹ {e.originalPrice}</span></div>
+                                    </div>
+                                    <div>Delivery by Tomorrow |  <span className="text-success"> Free </span><span className="text-decoration-line-through text-secondary">₹ 40</span></div>
+                                </div>
+                            </div>
+                        ))
+                    }
+
+
+                </div>
+                <div className="place-order-button flex justify-content-end p-4">
+                    <button className="btn btn-primary" onClick={displayRazorpay} >Place Order</button>
+                </div>
+            </div>
+
+            <div className="right-product-price p-3">
+                <div className="price-details fs-5 pb-2  text-secondary">
+                    PRICE DETAILS
+                </div>
+
+                <div className="price-items flex justify-content-between p-2">
+                    <div>Price ({cart.length} items)</div>
+                    <div>₹ {totalPrice}</div>
+                </div>
+
+                <div className="price-items flex justify-content-between p-2">
+                    <div>Discount</div>
+                    <div>-₹ 200</div>
+                </div>
+
+                <div className="price-items flex justify-content-between p-2">
+                    <div>Delivery Charges</div>
+                    <div className="text-success">Free</div>
+                </div>
+
+                <div className="price-items flex justify-content-between p-2 total-amt fs-4">
+                    <div className="fw-bold">Total Amount</div>
+                    <div className="text-success">₹ {totalPrice}</div>
                 </div>
             </div>
         </div>
     )
 }
+
+
+
+{/* <div className="row">
+    <div className="col-lg-8">
+        <div className="row">
+            <h5>{useData.name}</h5>
+            <h5>{useData.email}</h5>
+            <h5>{useData.address}</h5>
+
+        </div>
+
+        <div className="row">
+            {cart.map((e) => (
+                <div>{e.name}</div>
+            ))}
+        </div>
+    </div>
+    <div className="col-lg-4">
+        <div className="row">Total Price:{totalPrice}</div>
+        <button onClick={displayRazorpay} className="btn btn-outline-success">Proceed to pay</button>
+    </div>
+</div> */}

@@ -1,0 +1,76 @@
+.order-details-wrapper {
+    height: 90vh;
+    /* background-color: red; */
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.left-orders-details {
+    width: 70%;
+    height: 100%;
+    /* background-color: rgb(255, 170, 0); */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.right-product-price {
+    width: 30%;
+    height: fit-content;
+    /* background-color: brown; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: sticky;
+    top: 10vh;
+}
+
+.user-address {
+    height: 12vh;
+    /* background-color: skyblue; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 5px;
+}
+
+.user-order-products {
+    height: 100%;
+    /* background-color: yellowgreen; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+
+.price-details {
+    border-bottom: 0.5px dotted gray;
+
+}
+
+.total-amt {
+    border-top: 0.5px dotted gray;
+}
+
+.order-procuct-image {
+    width: 20%;
+    /* background-color: red; */
+}
+
+.order-procuct-image img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: cover;
+}
+
+.order-product-details {
+    width: 80%;
+    /* background-color: royalblue; */
+}
+
+.user-order-wrapper {
+    height: 20%;
+}
+
+.place-order-button {
+    position: relative;
+    top: -30px;
+}

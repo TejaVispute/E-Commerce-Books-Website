@@ -57,12 +57,13 @@ function Nav() {
   useEffect(() => {
     getUserDetails();
   }, [])
+  // #0275dd
   return (
     <div className="nav-wrapper" style={{ position: "sticky", top: 0, zIndex: "1" }}>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0275dd " }}>
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0275dd" }}>
         <div className="container">
           <Link style={{ color: "white" }} className="navbar-brand fw-bolder fs-2" to="/">
-           Bookerz
+            <img width={90} height={50} src="https://i.imgur.com/ZNLgHtA.png" alt="" />
           </Link>
           <button style={{ border: 0 }}
             className="navbar-toggler"

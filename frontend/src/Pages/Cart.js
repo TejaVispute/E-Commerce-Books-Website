@@ -79,7 +79,9 @@ export const Cart = () => {
 
         } catch (error) {
             console.log(error)
-            navigate("/")
+            // window.alert("please login first")
+            navigate("/login")
+
         }
     }
 
@@ -89,10 +91,10 @@ export const Cart = () => {
 
 
     function buyProduct(valu) {
-        console.log(valu)
+        // console.log(valu)
         navigate('/placeorder')
     }
-    
+
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -105,7 +107,7 @@ export const Cart = () => {
             <div className="container cart-container">
 
                 {cart.length === 0 ? <CartIsEmpty /> :
-                    <>
+                    <div style={{ overflowY: "scroll" }}>
                         <div className="heading-cart flex">
                             <div className="product">Product</div>
                             <div className="price">Price</div>
@@ -116,7 +118,7 @@ export const Cart = () => {
                             <div kay={product._id} className="cart-book-item flex">
                                 <div className="image-name-book flex">
                                     <div className="book-image">
-                                        <img src={product.image} width="100px" alt="" />
+                                        <img src={product.image} width="100px" height={"70px"} alt="" />
                                     </div>
                                     <div className="book-name flex">{product.name}</div>
                                 </div>
@@ -125,14 +127,14 @@ export const Cart = () => {
                                 {/* increment and decrement quantity of products  */}
                                 <div className="quantity-book">
                                     <button
-                                        className="btn btn-outline-success me-2"
+                                        className="btn btn-outline-success me-2 rounded-circle"
                                         onClick={() => HandleAdd(product)}
                                     >
                                         +
                                     </button>
                                     <span>{product.quantity}</span>
                                     <button
-                                        className="btn btn-outline-danger ms-2"
+                                        className="btn btn-outline-danger ms-2 rounded-circle"
                                         onClick={() => HandleRemove(product)}
                                     >
                                         -
@@ -142,18 +144,20 @@ export const Cart = () => {
 
                             </div>
                         ))}
-                    </>
+                    </div>
 
                 }
 
 
-                {/*subtotal of all cart items  */}
-                {cart.length === 0 ? null : <div className="cart-items-total">
-                    <div>
-                        Total Price <div className="total-items-total-price">{totalPrice}</div>
-                        <button className="btn btn-outline-success" onClick={() => buyProduct(cart)}>buy</button>
-                    </div>
-                </div>}
+                <div className="flex  justify-content-end p-4">
+                    {/*subtotal of all cart items  */}
+                    {cart.length === 0 ? null : <div className="cart-items-total fw-bold">
+                        <div>
+                            Total Price <div className="total-items-total-price ">₹ {totalPrice}</div>
+                            <button className="btn btn-outline-success" onClick={() => buyProduct(cart)}>buy</button>
+                        </div>
+                    </div>}
+                </div>
             </div>
 
             {/* {!user && <h1>Please Login First</h1>} */}

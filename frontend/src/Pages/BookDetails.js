@@ -73,6 +73,14 @@ function BookDetails() {
                         <div className="description">
                             <p> <span className='fw-bold'>Description:-</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dicta, vero excepturi pariatur aliquam animi voluptatibus omnis ea earum eaque suscipit eligendi quasi quisquam sequi, perspiciatis sed doloremque enim corrupti laborum. Voluptatem tempore rem dolor cumque laudantium iste ipsam et quos vitae dolore, impedit veniam sunt fugiat nobis. Ipsa, exercitationem.</p>
                         </div>
+                        <div className="offers-wrapper">
+                            <div className='p-2'>    <i class="fa-solid fa-tag text-success "></i> <span className='mx-2'>Bookerz Pay Later</span></div>
+
+                            <div className='p-2'>    <i class="fa-solid fa-tag text-success "></i> <span className='mx-2'><span className='fw-bold'>Bank Offer</span> 10% Off up to ₹750 on SBI Credit/Debit Card transaction.T&C</span></div>
+
+                            <div className='p-2'>    <i class="fa-solid fa-tag text-success "></i> <span className='mx-2 text-justify'><span className='fw-bold'>Bank Offer</span> 10% off on Axis Bank Credit Card and EMI Transactions, up to ₹1500, on orders of ₹5,000 and aboveT&C</span></div>
+                            <div className='p-2'>    <i class="fa-solid fa-tag text-success "></i> <span className='mx-2 text-justify'><span className='fw-bold'>Bank Offer</span> 10% off on AU Bank Credit Card Transactions, up to ₹1,000. On orders of ₹10,000 and aboveT&C</span></div>
+                        </div>
                         <div className="add-to-cart">
                             <button onClick={() => addToCart(findBook)} className='btn btn-outline-success'>Add to cart</button>
                         </div>
