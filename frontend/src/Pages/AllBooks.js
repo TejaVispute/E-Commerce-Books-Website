@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../Pages css/allbooks.css';
 import BooksCard from '../Components/BooksCard';
 import { useBook } from '../Context/BookContext';
-import SkletonLoad from '../Components/SkletonLoad';
+// import SkletonLoad from '../Components/SkletonLoad';
 import { AnimationLoader } from '../Components/AnimationLoader';
 function AllBooks() {
 
@@ -16,6 +16,13 @@ function AllBooks() {
         let filtered = data.filter((e) => e.categories === value)
         setFilter(filtered)
     }
+    const goTop = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    };
+    useEffect(() => {
+        goTop();
+    });
+
 
 
     return (

@@ -5,7 +5,7 @@ import { useAuth } from '../Context/AuthenticateContext';
 
 export const Logout = () => {
 
-    let { isLoggedIn, setIsLoggedIn } = useAuth();
+    let { setIsLoggedIn } = useAuth();
 
 
     let navigate = useNavigate();

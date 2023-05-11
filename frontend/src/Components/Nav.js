@@ -13,7 +13,7 @@ function Nav() {
   let { setSearchBook, cart } = useBook();
   let { isLoggedIn, setIsLoggedIn } = useAuth();
   let navigate = useNavigate()
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
 
   // console.log(user.email)

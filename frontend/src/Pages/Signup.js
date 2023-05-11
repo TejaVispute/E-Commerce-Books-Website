@@ -44,7 +44,7 @@ export const Signup = () => {
         } else {
             window.alert("success");
             console.log('success ');
-            navigate('/')
+            navigate('/login')
         }
 
     }

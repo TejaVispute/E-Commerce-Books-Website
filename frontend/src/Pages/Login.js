@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../Pages css/login.css'
 import { useAuth } from '../Context/AuthenticateContext';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
     let { isLoggedIn, setIsLoggedIn } = useAuth();
@@ -34,6 +35,16 @@ const Login = () => {
         } else {
 
             window.alert("login successful")
+            // toast.success('Logged in successful !', {
+            //     position: "top-center",
+            //     autoClose: 5000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "light",
+            // });
             naviagate("/")
             setIsLoggedIn(true)
         }
@@ -63,6 +74,16 @@ const Login = () => {
                     <button onClick={loginUser} type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
+            {/* <ToastContainer position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light" /> */}
         </div>
     )
 }

@@ -53,6 +53,7 @@ export const PlaceOrder = () => {
         callAboutPage();
     }, [])
 
+
     function loadRazorpay(value) {
         return new Promise((resolve) => {
             const script = document.createElement('script');
@@ -66,7 +67,6 @@ export const PlaceOrder = () => {
             }
             document.body.appendChild(script)
         })
-
     }
 
 

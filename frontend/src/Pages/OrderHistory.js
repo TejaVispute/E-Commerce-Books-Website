@@ -34,7 +34,8 @@ const OrderHistory = () => {
         <div className='table-responsive'>
 
             <div className="container  py-5">
-                <table className="table table-bordered table-hover">
+                <span className=' fw-bold border-bottom bg-danger p-1 px-2 text-white '>Previus Orders</span>
+                <table className="table table-bordered table-hover mt-3">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">Sr.No</th>

@@ -118,6 +118,7 @@ let razorpay = new Razorpay({
   key_id: "rzp_test_uD8A6e2bMoZRiA",
   key_secret: "DUyCYrGtajkQRs1xhgIAQrtU",
 });
+
 router.post("/razorpay", async (req, res) => {
   const payment_capture = 1;
   const currency = "INR";
