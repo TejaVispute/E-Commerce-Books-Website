@@ -16,7 +16,9 @@ const EmptyCart = require("../models/EmptyCartSchems")
 router.use(cookieParser());
 router.use(
   cors({
-    origin: ["http://localhost:3000"],
+
+    // origin: ["http://localhost:3000"],
+    origin: ["https://master--earnest-valkyrie-e46c0b.netlify.app/"],
     credentials: true,
   })
 );
@@ -54,7 +56,7 @@ router.post("/register", async (req, res) => {
       // creating new empty cart when user regesters
       const emptyCartCreate = new EmptyCart({ email: email });
       const createdCartResult = await emptyCartCreate.save();
-      
+
       console.log(createdCartResult);
       res.status(201).json({ message: "user registered successfully" });
     }
