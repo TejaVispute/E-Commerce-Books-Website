@@ -28,7 +28,7 @@ function Nav() {
   const getUserDetails = async () => {
 
     try {
-      const res = await fetch("http://localhost:4000", {
+      const res = await fetch("http://localhost:4000/", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -57,7 +57,7 @@ function Nav() {
   useEffect(() => {
     getUserDetails();
   }, [])
-  // #0275dd
+  
   return (
     <div className="nav-wrapper" style={{ position: "sticky", top: 0, zIndex: "1" }}>
       <nav className="navbar navbar-expand-lg" >

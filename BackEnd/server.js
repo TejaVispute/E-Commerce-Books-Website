@@ -3,12 +3,12 @@ dotemv.config({ path: "./config.env" })
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT;
-
+const cors = require('cors')
 const mongoose = require('mongoose');
 const { MongoClient } = require("mongodb");
 const User = require('./models/userSchema');
 const bodyParser = require('body-parser');
-
+app.use(cors());
 app.use(express.json());//for converting data from json to object
 app.use(require('./router/auth')); //link router file here 
 require('./db/conn');
