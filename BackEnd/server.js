@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const { MongoClient } = require("mongodb");
 const User = require('./models/userSchema');
 const bodyParser = require('body-parser');
-app.use(cors());
+// app.use(cors());
 app.use(express.json());//for converting data from json to object
 app.use(require('./router/auth')); //link router file here 
 require('./db/conn');

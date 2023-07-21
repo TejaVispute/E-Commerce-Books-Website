@@ -183,23 +183,3 @@ export const PlaceOrder = () => {
 
 
 
-{/* <div className="row">
-    <div className="col-lg-8">
-        <div className="row">
-            <h5>{useData.name}</h5>
-            <h5>{useData.email}</h5>
-            <h5>{useData.address}</h5>
-
-        </div>
-
-        <div className="row">
-            {cart.map((e) => (
-                <div>{e.name}</div>
-            ))}
-        </div>
-    </div>
-    <div className="col-lg-4">
-        <div className="row">Total Price:{totalPrice}</div>
-        <button onClick={displayRazorpay} className="btn btn-outline-success">Proceed to pay</button>
-    </div>
-</div> */}

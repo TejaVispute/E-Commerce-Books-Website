@@ -10,46 +10,37 @@ const Login = () => {
 
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
-    const naviagate = useNavigate()
+    const navigate = useNavigate()
 
     const loginUser = async (e) => {
         e.preventDefault();
+        console.log("loginuser")
+        try {
+            const res = await fetch('http://localhost:4000/signin', {
+                method: "POST",
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email, password
+                })
+            });
 
-        const res = await fetch('http://localhost:4000/signin', {
-            method: "POST",
-            credentials: 'include',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email, password
-            })
+            if (!res.ok) {
+                const errorMessage = await res.text();
+                throw new Error(errorMessage || "Invalid credentials");
+            }
 
-        })
-        console.log(res);
+            window.alert("Login successful");
+            navigate("/"); // Assuming "navigate" is a function that handles navigation
 
-
-        if (res.status === 400 || !res) {
-            window.alert("invlid credentials")
-            setIsLoggedIn(false)
-        } else {
-
-            window.alert("login successful")
-            // toast.success('Logged in successful !', {
-            //     position: "top-center",
-            //     autoClose: 5000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: true,
-            //     draggable: true,
-            //     progress: undefined,
-            //     theme: "light",
-            // });
-            naviagate("/")
-            setIsLoggedIn(true)
+        } catch (error) {
+            window.alert(error.message);
+            setIsLoggedIn(false);
         }
+    };
 
-    }
 
     return (
         <div className='container login-form-wrapper'>
@@ -71,7 +62,7 @@ const Login = () => {
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
-                    <button onClick={loginUser} type="submit" className="btn btn-primary">Submit</button>
+                    <button onClick={loginUser} type="submit" className="btn btn-primary">Login</button>
                 </form>
             </div>
             {/* <ToastContainer position="top-center"

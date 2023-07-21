@@ -14,13 +14,11 @@ const mongoose = require("mongoose");
 const EmptyCart = require("../models/EmptyCartSchems")
 
 router.use(cookieParser());
-router.use(
-  cors({
-
-    // origin: ["http://localhost:3000"],
-    origin: ["https://master--earnest-valkyrie-e46c0b.netlify.app/"],
-    credentials: true,
-  })
+router.use(cors({
+  origin: ["http://localhost:3000"],
+  // origin: ["https://master--earnest-valkyrie-e46c0b.netlify.app/"],
+  credentials: true,
+})
 );
 router.get("/", Authenticate, (req, res) => {
   res.send(req.rootUser);
@@ -28,6 +26,7 @@ router.get("/", Authenticate, (req, res) => {
 
 // using async method
 router.post("/register", async (req, res) => {
+  console.log(req.body);
   const { name, email, phone, address, password, cpassword } = req.body;
   // console.log(name, email, phone)
   // checking for input to be filled by user
@@ -66,8 +65,12 @@ router.post("/register", async (req, res) => {
   // res.json({ message: req.body })
 });
 
+
+
+
 //creating login route
 router.post("/signin", async (req, res) => {
+  console.log(req.body);
   try {
     const { email, password } = req.body;
 
