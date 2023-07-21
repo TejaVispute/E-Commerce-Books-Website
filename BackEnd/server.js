@@ -36,7 +36,7 @@ app.get('/books', async (req, res) => {
     let bookData = await FindData();
     setTimeout(() => {
         res.json(bookData);
-    }, 2000)
+    }, 1000)
 
 })
 

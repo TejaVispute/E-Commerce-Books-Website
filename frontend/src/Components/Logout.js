@@ -6,8 +6,6 @@ import { useAuth } from '../Context/AuthenticateContext';
 export const Logout = () => {
 
     let { setIsLoggedIn } = useAuth();
-
-
     let navigate = useNavigate();
     useEffect(() => {
         fetch('http://localhost:4000/logout', {

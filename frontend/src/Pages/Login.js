@@ -6,16 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
     let { isLoggedIn, setIsLoggedIn } = useAuth();
-    // console.log(isLoggedIn)
-
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     const navigate = useNavigate()
-
+    const [loading, setLoading] = useState(false);
     const loginUser = async (e) => {
         e.preventDefault();
-        console.log("loginuser")
+        // console.log("loginuser")
         try {
+            setLoading(true);
             const res = await fetch('http://localhost:4000/signin', {
                 method: "POST",
                 credentials: 'include',
@@ -31,16 +30,25 @@ const Login = () => {
                 const errorMessage = await res.text();
                 throw new Error(errorMessage || "Invalid credentials");
             }
-
+            setLoading(false);
             window.alert("Login successful");
+            setIsLoggedIn(true)
             navigate("/"); // Assuming "navigate" is a function that handles navigation
 
         } catch (error) {
+            setLoading(false);
             window.alert(error.message);
             setIsLoggedIn(false);
         }
     };
 
+    if (loading) {
+        return <div style={{ height: "100vh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
 
     return (
         <div className='container login-form-wrapper'>
